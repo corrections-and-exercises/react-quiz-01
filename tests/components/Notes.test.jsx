@@ -6,28 +6,26 @@ import { expect } from "vitest";
 describe("Notes", () => {
   it("should render no notes intially", () => {
     render(<Notes />);
-    const text = screen.getByText("No notes");
+    const text = screen.queryByText("No notes");
     expect(text).toBeInTheDocument();
   });
 
   it("should add a note and display it", async () => {
     render(<Notes />);
-    const input = screen.getByRole("textbox");
-    const submitBtn = screen.getByRole("button", { type: "form" });
+    const input = screen.queryByRole("textbox");
+    const submitBtn = screen.queryByRole("button", { type: "form" });
     await userEvent.type(input, "cleaning");
     await userEvent.click(submitBtn);
   });
 
   it("should be able to delete a note", async () => {
     render(<Notes />);
-    const input = screen.getByRole("textbox");
-    const submitBtn = screen.getByRole("button", { type: "form" });
+    const input = screen.queryByRole("textbox");
+    const submitBtn = screen.queryByRole("button", { type: "form" });
     await userEvent.type(input, "cleaning");
     await userEvent.click(submitBtn);
-    screen.debug();
 
-    const deleteBtn = screen.getByRole("button", { name: "delete" });
+    const deleteBtn = screen.queryAllByRole("button", { name: "delete" })[0];
     await userEvent.click(deleteBtn);
-    screen.debug();
   });
 });

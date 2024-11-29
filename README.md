@@ -43,12 +43,19 @@
 
 ### Notes, NotesInput, SingleNote
 
-- create these three components -<Notes/> should render <NotesInput> and an instance of <SingleNote/> for each note
-- if there are not notes to display the text "no notes" should appear on the page
+- Start with the Notes Component. It will be the parent component of NotesInput and multitple instance of SingleNote
+- it should keep track of all notes currently displayed in the app
 
-- NotesInput should contain a form to create a new note
-- each note should be an object with the following properties: text, date, id
+- in NotesInput you should implement a form with one text input
+- User should be able to enter a text
+- when submitting the form a new note should be created and added to the collection of notes
+- each note should be represented by an object and should have at least the following keys: id, text, date
 
-- SingleNote should accept one note `<SingleNote note={note}/>`
+- then implement the SingleNote Component
+- it should accept one note as a prop
 - it also should have a button to delete a note
+- the button must display "delete"
+
+- Notes should display "no notes" when there are no notes to be displayed
+
 - SingleNote should return an empty string, undefined or null when no note is passed in
