@@ -16,12 +16,11 @@
 - Create following components
 - The tests check the behaviour of the components. We don't test for implementation details
 - We already have provided you with the necessary files to create your components.
-- You need to run "npm run test" to see if you succeed
+- You need to run "npm run test <nameofcomponent>" to see if you succeed
 
 ### Header
 
 - Create a component called Header
-- call this component in <App/>
 - It should accept following props: username="karl"
 - with this input it should render: "Hello Karl"
 - when no props are passed it should render "Hello Guest" instead
@@ -30,7 +29,6 @@
 ### Topics
 
 - create a component called <Topics/>
-- call this component in <App/>
 - import the topics-array from "services/data.js" and pass it to the <Topics/> component. It should look something like this: topics={topics}
 - the component should display each topic as list item in a list
 - when no topics are passed in the component should display the text "no topics available"
