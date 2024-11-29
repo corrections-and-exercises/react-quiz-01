@@ -6,9 +6,9 @@ describe("Counter", () => {
   const renderComponent = () => {
     render(<Counter />);
     return {
-      increaseBtn: screen.getByRole("button", { name: /increase/i }),
-      decreaseBtn: screen.getByRole("button", { name: /decrease/i }),
-      countElement: screen.getByText(/count/i),
+      increaseBtn: screen.queryByRole("button", { name: /increase/i }),
+      decreaseBtn: screen.queryByRole("button", { name: /decrease/i }),
+      countElement: screen.queryByText(/count/i),
     };
   };
 
@@ -23,9 +23,19 @@ describe("Counter", () => {
     expect(countElement).toHaveTextContent("Count: 1");
   });
 
+  it("should decrease the count by 1 when the decrease button is clicked", async () => {
+    const { countElement, increaseBtn, decreaseBtn } = renderComponent();
+    await userEvent.click(increaseBtn);
+    await userEvent.click(increaseBtn);
+
+    await userEvent.click(decreaseBtn);
+
+    expect(countElement).toHaveTextContent("Count: 1");
+  });
+
   it("should not decrease count below 0 when decrease button is clicked", async () => {
     const { decreaseBtn, countElement } = renderComponent();
-    userEvent.click(decreaseBtn);
+    await userEvent.click(decreaseBtn);
     expect(countElement).toHaveTextContent("Count: 0");
   });
 });

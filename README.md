@@ -36,11 +36,10 @@
 ### Counter
 
 - create a component called <Counter />
-- the component should display the current count
+- the component should display the current count like so: `Count: 0`
 - it should have a button to increase the count by one
 - it should have a button to decrease the count by one
 - the user should not be able to go below 0
-- additionally it should display the count times 2
 
 ### Notes, NotesInput, SingleNote
 
@@ -50,6 +49,6 @@
 - NotesInput should contain a form to create a new note
 - each note should be an object with the following properties: text, date, id
 
-- SingleNote should accept one note
+- SingleNote should accept one note `<SingleNote note={note}/>`
 - it also should have a button to delete a note
 - SingleNote should return an empty string, undefined or null when no note is passed in

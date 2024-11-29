@@ -11,7 +11,7 @@ describe("SingleNote", () => {
   it("should display the passed in note", () => {
     const exampleNote = { text: "cleaning", id: 1 };
     render(<SingleNote note={exampleNote} />);
-    const note = screen.getByText(exampleNote.text);
+    const note = screen.queryByText(exampleNote.text);
     expect(note).toBeInTheDocument();
   });
 });
