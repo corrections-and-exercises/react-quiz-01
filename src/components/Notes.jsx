@@ -2,10 +2,8 @@ import { useState } from "react";
 import SingleNote from "./SingleNote";
 import NotesInput from "./NotesInput";
 
-import { notes as notelist } from "../services/data";
-
 export default function Notes() {
-  const [notes, setNotes] = useState(notelist);
+  const [notes, setNotes] = useState([]);
 
   return (
     <>

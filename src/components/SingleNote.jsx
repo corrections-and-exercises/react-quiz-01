@@ -4,11 +4,17 @@ export default function SingleNote({ note, setNotes }) {
   }
 
   return (
-    <li className="rounded bg-green-200 p-4 text-center">
-      <p className="font-bold">{note.text}</p>
-      <p className="hover:cursor-pointer" onClick={handleDelete}>
-        x
-      </p>
-    </li>
+    <>
+      {note ? (
+        <li className="rounded bg-green-200 p-4 text-center">
+          <p className="font-bold">{note.text}</p>
+          <button className="hover:cursor-pointer" onClick={handleDelete}>
+            delete
+          </button>
+        </li>
+      ) : (
+        ""
+      )}
+    </>
   );
 }

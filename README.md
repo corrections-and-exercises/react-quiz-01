@@ -52,3 +52,4 @@
 
 - SingleNote should accept one note
 - it also should have a button to delete a note
+- SingleNote should return an empty string, undefined or null when no note is passed in
