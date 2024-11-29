@@ -29,8 +29,8 @@
 ### Topics
 
 - create a component called <Topics/>
-- import the topics-array from "services/data.js" and pass it to the <Topics/> component. It should look something like this: topics={topics}
-- the component should display each topic as list item in a list
+- this component should accept a prop called "topics". it should be an array of strings: `<Topics topics={["react", "express", "postgres"]} />`
+- the component should display each topic as link in a list
 - when no topics are passed in the component should display the text "no topics available"
 
 ### Counter

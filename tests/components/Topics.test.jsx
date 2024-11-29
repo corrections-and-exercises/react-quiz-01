@@ -5,16 +5,16 @@ import { topics } from "../../src/services/data";
 describe("Topics", () => {
   it("should render no topics when array is empty", () => {
     render(<Topics />);
-    expect(screen.getByText(/no topics available/i)).toBeInTheDocument();
+    expect(screen.queryByText(/no topics available/i)).toBeInTheDocument();
   });
 
   it("should render a list of topics correctly as links", () => {
     render(<Topics topics={topics} />);
-    const listItems = screen.getAllByRole("listitem");
+    const listItems = screen.queryAllByRole("listitem");
     expect(listItems).toHaveLength(topics.length);
 
     topics.forEach((topic) => {
-      const link = screen.getByRole("link", {
+      const link = screen.queryByRole("link", {
         name: topic,
       });
       expect(link).toBeInTheDocument();
