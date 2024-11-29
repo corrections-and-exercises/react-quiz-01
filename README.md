@@ -15,6 +15,8 @@
 
 - Create following components
 - The tests check the behaviour of the components. We don't test for implementation details
+- We already have provided you with the necessary files to create your components.
+- You need to run "npm run test" to see if you succeed
 
 ### Header
 
