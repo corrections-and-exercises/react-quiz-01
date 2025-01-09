@@ -4,7 +4,7 @@ import userEvent from "@testing-library/user-event";
 import { expect } from "vitest";
 
 describe("Notes", () => {
-  it("should render no notes intially", () => {
+  it("should render 'No notes' intially", () => {
     render(<Notes />);
     const text = screen.queryByText("No notes");
     expect(text).toBeInTheDocument();
