@@ -4,7 +4,7 @@ import userEvent from "@testing-library/user-event";
 import { expect } from "vitest";
 
 describe("Notes", () => {
-  it("should render no notes intially", () => {
+  it("should render 'No notes' intially", () => {
     render(<Notes />);
     const text = screen.getByText("No notes");
     expect(text).toBeInTheDocument();
@@ -24,10 +24,8 @@ describe("Notes", () => {
     const submitBtn = screen.getByRole("button", { type: "form" });
     await userEvent.type(input, "cleaning");
     await userEvent.click(submitBtn);
-    screen.debug();
 
     const deleteBtn = screen.getByRole("button", { name: "delete" });
     await userEvent.click(deleteBtn);
-    screen.debug();
   });
 });
