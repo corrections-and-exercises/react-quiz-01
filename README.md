@@ -16,21 +16,20 @@
 - Create following components
 - The tests check the behaviour of the components. We don't test for implementation details
 - We already have provided you with the necessary files to create your components.
-- You need to run "npm run test <nameofcomponent>" to see if you succeed
+- You need to run "npm test <nameofcomponent>" to see if you succeed
 
 ### Header
 
 - Create a component called Header
-- It should accept following props: username="karl"
-- with this input it should render: "Hello Karl"
+- It should accept following props: `user={"any name"}` or `user={{firstName: "any name"}}`
+- with this input it should render: "Hello any name"
 - when no props are passed it should render "Hello Guest" instead
-- You can create your own markup for this Header
 
 ### Topics
 
-- create a component called <Topics/>
+- create a component called Topics
 - this component should accept a prop called "topics". it should be an array of strings: `<Topics topics={["react", "express", "postgres"]} />`
-- the component should display each topic as link in a list
+- the component should display each topic as an element in a list.
 - when no topics are passed in the component should display the text "no topics available"
 
 ### Counter
@@ -40,6 +39,7 @@
 - it should have a button to increase the count by one
 - it should have a button to decrease the count by one
 - the user should not be able to go below 0
+- the decrease button should be disabled when the count is 0
 
 ### Notes, NotesInput, SingleNote
 

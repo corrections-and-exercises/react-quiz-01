@@ -8,16 +8,14 @@ describe("Topics", () => {
     expect(screen.queryByText(/no topics available/i)).toBeInTheDocument();
   });
 
-  it("should render a list of topics correctly as links", () => {
+  it("should render a list of topics", () => {
     render(<Topics topics={topics} />);
     const listItems = screen.queryAllByRole("listitem");
     expect(listItems).toHaveLength(topics.length);
 
     topics.forEach((topic) => {
-      const link = screen.queryByRole("link", {
-        name: topic,
-      });
-      expect(link).toBeInTheDocument();
+      const result = listItems.some((item) => item.textContent == topic);
+      expect(result).toBeTruthy();
     });
   });
 });

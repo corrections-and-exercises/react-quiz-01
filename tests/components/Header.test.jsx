@@ -10,17 +10,23 @@ describe("Header", () => {
     expect(greeting).toBeInTheDocument();
   });
 
-  it("should render username if user is passed in as props", () => {
+  it("should render value of user if user is passed in as a string", () => {
     const user = "karl";
-    render(<Header username={user} />);
+    render(<Header user={user} />);
 
     const greeting = screen.getByText(user, { exact: false });
     expect(greeting).toBeInTheDocument();
   });
 
-  it("should render Hello Guest if username is null", () => {
-    render(<Header username={null} />);
+  it("should render Hello Guest if user is null", () => {
+    render(<Header user={null} />);
     const greeting = screen.getByText("Hello Guest");
+    expect(greeting).toBeInTheDocument();
+  });
+
+  it("should also be able to accept an object with at least the property 'firstName' and render the value correctly", () => {
+    render(<Header user={{ firstName: "Karl" }} />);
+    const greeting = screen.getByText("Hello Karl");
     expect(greeting).toBeInTheDocument();
   });
 });

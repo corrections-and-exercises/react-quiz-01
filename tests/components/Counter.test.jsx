@@ -36,6 +36,12 @@ describe("Counter", () => {
   it("should not decrease count below 0 when decrease button is clicked", async () => {
     const { decreaseBtn, countElement } = renderComponent();
     await userEvent.click(decreaseBtn);
+    expect(decreaseBtn).toBeInTheDocument();
     expect(countElement).toHaveTextContent("Count: 0");
+  });
+
+  test("decrease button should be disabled when the count is 0", () => {
+    const { decreaseBtn } = renderComponent();
+    expect(decreaseBtn).toBeDisabled();
   });
 });
