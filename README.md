@@ -1,61 +1,95 @@
 # React Quiz 01
 
-## Setup
+## Start
 
-- clone repo
-- npm install
+1.**Clone the Repository.**
 
-- tailwind
-- sorting tailwind class with prettier plugin - see .prettierrc
+`git clone git@github.com:corrections-and-exercises/react-quiz-01.git`
 
-- test files
-- testing with react testing library and vitest
+2.**Install Dependencies**
+
+`npm install`
+
+3.**Tailwind CSS**
+
+Tailwind CSS is already installed, enabling you to style your components inf desired. Styling is optional for this exercise.
+
+## Testing
+
+The exercises uses "React Testing Library and "Vitest" for tests
+To run tests, execute:
+` npm test`
+
+You can run tests for specific components using:
+`npm test <ComponentName>`
+
+You can stop the tests by pressing `q` in the terminal.
 
 ## Instructions
 
-- Create following components
-- The tests check the behaviour of the components. We don't test for implementation details
-- We already have provided you with the necessary files to create your components.
-- You need to run "npm test <nameofcomponent>" to see if you succeed
+### Components to be created
+
+1. Header
+2. Counter
+3. Topics
+4. Notes
+5. NotesInput
+6. SingleNote
+
+Each component's behavior will be tested through provided test files. The tests focus on behaviar rather than implementation details. Each test can provide hints and insights into the expected component behavior.
 
 ### Header
 
-- Create a component called Header
-- It should accept following props: `user={"any name"}` or `user={{firstName: "any name"}}`
-- with this input it should render: "Hello any name"
-- when no props are passed it should render "Hello Guest" instead
+---
+
+**Props**
+Accepts `user`which can be either a string or an object `{firstName: "Karl"}`
+
+**Rendering**
+If `user` is a string, render "Hello Karl".
+If `user` is an object, render "Hello Karl".
+If no props are passed, render "Hello Guest".
 
 ### Topics
 
-- create a component called Topics
-- this component should accept a prop called "topics". it should be an array of strings: `<Topics topics={["react", "express", "postgres"]} />`
-- the component should display each topic as an element in a list.
-- when no topics are passed in the component should display the text "no topics available"
+---
+
+**Props**
+Accepts an array of strings as "topics"
+
+**Rendering**
+Display each topic inside a list.
+If no topics are passed, render: "No topics available".
 
 ### Counter
 
-- create a component called <Counter />
-- the component should display the current count like so: `Count: 0`
-- it should have a button to increase the count by one
-- it should have a button to decrease the count by one
-- the user should not be able to go below 0
-- the decrease button should be disabled when the count is 0
+---
+
+Display the current count in the format: "Count: 0".\*
+Provide buttons to increase and decrease the count by one.
+Prevent the count from going below 0.
+Disable the decrease button when the count is 0.
 
 ### Notes, NotesInput, SingleNote
 
-- Start with the Notes Component. It will be the parent component of NotesInput and multitple instance of SingleNote
-- it should keep track of all notes currently displayed in the app
+---
 
-- in NotesInput you should implement a form with one text input
-- User should be able to enter a text
-- when submitting the form a new note should be created and added to the collection of notes
-- each note should be represented by an object and should have at least the following keys: id, text, date
+1.**Notes Component**
 
-- then implement the SingleNote Component
-- it should accept one note as a prop
-- it also should have a button to delete a note
-- the button must display "delete"
+Acts as a parent component to `<NotesInput />` and multiple instances of `<SingleNote />`
+Manages a collection of notes, each represented as an object with properties such as "id" and "text".
+Should display "No notes" when there are no notes to show.
 
-- Notes should display "no notes" when there are no notes to be displayed
+2.**SingleNote**
 
-- SingleNote should return an empty string, undefined or null when no note is passed in
+**Props**
+Accepts a note object `{id: 1, text: "cleaning"}`
+
+**Rendering**
+Displays the note text and includes a delete button to remove it
+Returns an empty string, undefined or null if no note is provided
+
+3.**NotesInput**
+
+Inclues a form with a text input.
+Allows users to input text and submit to create a new note
